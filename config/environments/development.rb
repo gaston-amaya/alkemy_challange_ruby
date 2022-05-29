@@ -17,6 +17,25 @@ Rails.application.configure do
   # Enable server timing
   config.server_timing = true
 
+
+config.action_mailer.raise_delivery_errors = true
+#
+
+#config action mailer changed to test because its not on production yet, if changed to "stmp" it will use the gmail service and send actual emails
+config.action_mailer.delivery_method = :test
+host = 'smtp.gmail.com' #replace with your own url
+config.action_mailer.default_url_options = { host: host }
+
+# SMTP settings for gmail
+config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :user_name            => Rails.application.credentials.user_email,
+  :password             => Rails.application.credentials.user_password,
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+}
+
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join("tmp/caching-dev.txt").exist?

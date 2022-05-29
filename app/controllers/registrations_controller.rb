@@ -3,8 +3,10 @@ class RegistrationsController < Devise::RegistrationsController
 
     def create
         build_resource(sign_up_params)
-        resource.save
+        if resource.save
+            RegistrationMailer.with(user: @user).new_registration_email.deliver
         render json: resource, status: :created
+        end
         
     end
 end
