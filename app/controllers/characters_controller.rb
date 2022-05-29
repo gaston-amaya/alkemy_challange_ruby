@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
    before_action :current_character, only: [:show, :edit, :update, :destroy]
-        # before_action :authenticate_user!
+        before_action :authenticate_user!
     
     
         def index 

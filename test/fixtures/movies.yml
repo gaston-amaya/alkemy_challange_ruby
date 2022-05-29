@@ -1,4 +1,23 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: movies
+#
+#  id         :integer          not null, primary key
+#  picture    :string
+#  rating     :integer
+#  title      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  genre_id   :integer          not null
+#
+# Indexes
+#
+#  index_movies_on_genre_id  (genre_id)
+#
+# Foreign Keys
+#
+#  genre_id  (genre_id => genres.id)
+#
 
 # This model initially had no columns defined. If you add columns to the
 # model remove the "{}" from the fixture names and add the columns immediately

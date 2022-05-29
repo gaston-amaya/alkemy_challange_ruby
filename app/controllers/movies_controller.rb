@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
     
         before_action :current_movie, only: [:show, :edit, :update, :destroy]
-        #before_action :authenticate_user!
+        before_action :authenticate_user!
     
     
         def index 
