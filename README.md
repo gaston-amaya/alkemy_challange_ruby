@@ -1,24 +1,15 @@
-# README
+# things done so far: 
+• all models, controllers and routes created for movie, genre, characters
+• all serializers created
+• all associations done and also displaying the required fields (associations included)
+• login and register
+• when a user registers a welcome email gets sent to their registered email 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+# things to do: 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+• add query filters(already looked at a gem called "has_scopes", it should work)
+• validations through various points: database field validations, model field validations, controller field validations
+• flash messages for success and fail entries (displaying errors included)
+• documentation(done with insomnia and uploaded to a github website)
+• tests 
