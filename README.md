@@ -1,9 +1,9 @@
 # things done so far: 
-• all models, controllers and routes created for movie, genre, characters
-• all serializers created
-• all associations done and also displaying the required fields (associations included)
-• login and register
-• when a user registers a welcome email gets sent to their registered email 
+** all models, controllers and routes created for movie, genre, characters
+** all serializers created
+** all associations done and also displaying the required fields (associations included)
+** login and register
+** when a user registers a welcome email gets sent to their registered email 
 
 
 # things to do: 
