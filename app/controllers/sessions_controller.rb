@@ -1,4 +1,7 @@
 class SessionsController < Devise::SessionsController
+    include ActionController::Helpers
+    include ActionController::Flash
+    
     respond_to :json
 
     private
