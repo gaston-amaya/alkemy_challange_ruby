@@ -2,8 +2,10 @@ class MovieCharacterController < ApplicationController
   before_action :current_movie_character, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
+  has_scope :by_movie
+
   def index
-    @movie_characters = MovieCharacter.all
+    @movie_characters = apply_scopes(MovieCharacter).all
     render json: @movie_characters
   end
 

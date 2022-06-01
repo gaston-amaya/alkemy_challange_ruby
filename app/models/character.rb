@@ -14,8 +14,8 @@
 class Character < ApplicationRecord
 #scopes
 scope :by_name, -> name { where(name: name) }
-scope :by_age, 
-scope :by_movie_id, -> id { joins(:movie_characters).merge(id: id) }
+scope :by_age, -> age { where(age: age) }
+scope :by_movie, -> movie { where(movie: movie) }
 
 
 #validations

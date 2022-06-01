@@ -1,10 +1,14 @@
 class MoviesController < ApplicationController
     before_action :current_movie, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
+
+    has_scope :by_title
+    has_scope :by_genre
+    has_scope :by_order
     
     
         def index 
-            @movie = Movie.all
+            @movie = apply_scopes(Movie).all
             render json: @movie
         end
 
@@ -37,10 +41,10 @@ class MoviesController < ApplicationController
      
          def update
          @movie.update(movie_params)
-         if movie.valid?
+         if @movie.valid?
             @movie.save
             flash[:notice] = 'The movie has been updated successfully!'
-            redirect_to movies_path
+            
         else
             flash[:alert] = @movie.errors.full_messages
         end

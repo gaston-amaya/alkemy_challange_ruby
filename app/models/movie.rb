@@ -35,6 +35,12 @@ class Movie < ApplicationRecord
 
   validates :picture, length: { maximum: 250, message: 'The maximum length for a picture link is 250 characters' }
 
+#scopes
+scope :by_title, -> title { where(title: title) }
+scope :by_genre, -> genre_id { where(genre_id: genre_id) }
+scope :by_order, -> {order(created_at: :desc) }
+#scope :desc, -> { reorder(created_at: :desc) }
+
 
 
 #associations

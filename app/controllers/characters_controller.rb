@@ -3,11 +3,13 @@ class CharactersController < ApplicationController
         before_action :authenticate_user!
 
         has_scope :by_name
-        has_scope :by_movie_id
+        #has_scope :by_movie_id
+        has_scope :by_movie
+        has_scope :by_age
     
     
         def index 
-            @characters = Character.all
+            @characters = apply_scopes(Character).all
             render json: @characters
          end
          

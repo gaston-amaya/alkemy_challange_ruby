@@ -14,14 +14,10 @@ Rails.application.routes.draw do
 
   #characters
   resources :characters
+  
   #movies
   resources :movies
-  resources :movies do
-    collection do
-      get '/list', to: 'movies#list'
-      end
-  end
-
+  
   #genres
   resources :genres
 
