@@ -4,12 +4,12 @@
 3. all associations done and also displaying the required fields (associations included)
 4. login and register
 5. when a user registers a welcome email gets sent to their registered email 
+6. validations through various points: database field validations, model field validations, controller field validations
+7. flash messages for success and fail entries (displaying errors included)
 
 
 # things to do: 
 
 1. add query filters(already looked at a gem called "has_scopes", it should work)
-2. validations through various points: database field validations, model field validations, controller field validations
-3. flash messages for success and fail entries (displaying errors included)
-4. documentation(done with insomnia and uploaded to a github website)
-5. tests 
+2. documentation(done with insomnia and uploaded to a github website)
+3. tests 
