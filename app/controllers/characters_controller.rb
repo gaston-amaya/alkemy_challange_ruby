@@ -1,6 +1,9 @@
 class CharactersController < ApplicationController
-   before_action :current_character, only: [:show, :edit, :update, :destroy]
+        before_action :current_character, only: [:show, :edit, :update, :destroy]
         before_action :authenticate_user!
+
+        has_scope :by_name
+        has_scope :by_movie_id
     
     
         def index 
@@ -20,10 +23,15 @@ class CharactersController < ApplicationController
      
          def create
              @character = Character.create(character_params)
-            
+            if @character.valid?
                 @character.save
+                flash[:notice] = 'The character has been added successfully!'
      
              redirect_to characters_path
+            else
+                flash[:alert] = @character.errors.full_messages
+                puts(flash.inspect)
+            end
      
          end
      
@@ -32,17 +40,26 @@ class CharactersController < ApplicationController
          end
      
          def update
-         
-             
+         @character.update(character_params)
+         if @character.valid?
+            @character.save
+            flash[:notice] = 'The character has been updated successfully!'
+            
+            
+         else
+            flash[:alert] = @character.errors.full_messages
+         end
+
+
      
-             @character.update(character_params)
          
          end
      
          def destroy
-             
-             
              @character.destroy
+             flash[:notice] = 'The character has been deleted successfully!'
+             
+
          
          end
      

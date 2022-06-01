@@ -7,11 +7,25 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
   end
+
+ 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  #characters
   resources :characters
+  #movies
   resources :movies
+  resources :movies do
+    collection do
+      get '/list', to: 'movies#list'
+      end
+  end
+
+  #genres
   resources :genres
+
+  #movie_character
   resources :movie_character
 
 end

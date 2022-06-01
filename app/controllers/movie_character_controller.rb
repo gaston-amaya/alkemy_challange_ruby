@@ -17,18 +17,30 @@ class MovieCharacterController < ApplicationController
 
   def create
     @movie_characters = MovieCharacter.create(movie_character_params)
-    # if @genre.valid?
+    if @movie_characters.valid?
     @movie_characters.save
+    flash[:notice] = 'The movie/character has been added successfully!'
+    else
+    flash[:alert] = @movie_characters.errors.full_messages
+    end
   end
 
   def edit; end
 
   def update
     @movie_characters.update(movie_character_params)
+    if @movie_characters.valid?
+    @movie_characters.save
+    flash[:notice] = 'The movie/character has been updated successfully!'
+    else
+    flash[:alert] = @movie_characters.errors.full_messages
+    end
   end
 
   def destroy
     @movie_characters.destroy
+    flash[:notice] = 'The movie/character has been deleted successfully!'
+
   end
 
   private

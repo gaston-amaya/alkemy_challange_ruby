@@ -12,6 +12,26 @@
 #  updated_at :datetime         not null
 #
 class Character < ApplicationRecord
-    has_many :movie_characters
-    has_many :movies, through: :movie_characters
+#scopes
+scope :by_name, -> name { where(name: name) }
+scope :by_age, 
+scope :by_movie_id, -> id { joins(:movie_characters).merge(id: id) }
+
+
+#validations
+validates :name, :picture, :age, :story, :weight, presence: true 
+
+validates :name, uniqueness: { message: 'A character with that name already exists' }
+
+validates :name, length: { in: 3..25, message: 'The character name length must be higher than 3 letters and has a maximum of 25 letters' }
+
+validates :name, :story, format: { with: /\A[a-zA-Z0-9 ]+\z/, message: 'Only letters and numbers can be used' }
+
+validates :age, :weight, format: { with: /[0-9]/, message: 'Only numbers can be used' }
+
+validates :picture, length: { maximum: 250, message: 'The maximum length for a picture link is 250 characters' }
+
+#associations
+has_many :movie_characters
+has_many :movies, through: :movie_characters
 end

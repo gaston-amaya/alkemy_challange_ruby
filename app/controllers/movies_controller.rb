@@ -1,20 +1,18 @@
 class MoviesController < ApplicationController
-    
-        before_action :current_movie, only: [:show, :edit, :update, :destroy]
-        before_action :authenticate_user!
+    before_action :current_movie, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!
     
     
         def index 
-            @movies = Movie.all
-            render json: @movies 
-         end
-         
-         def show
-             
-             render json: @movie, serializer: MovieDetailSerializer
-         end
-     
-         def new
+            @movie = Movie.all
+            render json: @movie
+        end
+
+        def show
+            render json: @movie, serializer: MovieDetailSerializer
+        end
+
+        def new
              @movie = Movie.new
      
          end
@@ -22,33 +20,43 @@ class MoviesController < ApplicationController
          def create
              @movie = Movie.create(movie_params)
              
-                if @movie.save
-     
-             redirect_to movies_path
+                if @movie.valid?
+                    @movie.save
+                    flash[:notice] = 'The movie has been added successfully!'
+                    
+                    redirect_to movies_path
+                else
+                    flash[:alert] = @movie.errors.full_messages
+                    
                 end
-     
-         end
+            end
      
          def edit
              
          end
      
          def update
-         
-             
-     
-             @movie.update(movie_params)
+         @movie.update(movie_params)
+         if movie.valid?
+            @movie.save
+            flash[:notice] = 'The movie has been updated successfully!'
+            redirect_to movies_path
+        else
+            flash[:alert] = @movie.errors.full_messages
+        end
+
          
          end
      
          def destroy
-             
-             
              @movie.destroy
+             flash[:notice] = 'The movie has been deleted successfully!'
          
          end
      
-         private  
+         private
+
+      
      
          def movie_params
              params.require(:movie).permit(:picture, :title, :rating, :genre_id)

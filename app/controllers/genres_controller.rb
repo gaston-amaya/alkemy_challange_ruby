@@ -1,9 +1,4 @@
 class GenresController < ApplicationController
-  
-
-  include ActionController::Helpers
-  include ActionController::Flash
-
   before_action :current_genre, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
@@ -37,10 +32,21 @@ class GenresController < ApplicationController
 
   def update
     @genre.update(genre_params)
+    if @genre.valid?
+      @genre.save
+      flash[:notice] = 'The genre has been updated successfully!'
+
+      
+    else
+      flash[:alert] = @genre.errors.full_messages
+    end
+
   end
 
   def destroy
     @genre.destroy
+    flash[:notice] = 'The genre has been deleted successfully!'
+    
   end
 
   private
