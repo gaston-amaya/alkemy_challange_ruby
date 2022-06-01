@@ -4,7 +4,7 @@
 3. all associations done and also displaying the required fields (associations included)
 4. login and register
 5. when a user registers a welcome email gets sent to their registered email 
-6. validations through various points: database field validations, model field validations, controller field validations
+6. validations model, controller and database
 7. flash messages for success and fail entries (displaying errors included)
 
 
