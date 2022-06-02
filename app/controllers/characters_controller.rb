@@ -3,13 +3,13 @@ class CharactersController < ApplicationController
         before_action :authenticate_user!
 
         has_scope :by_name
-        #has_scope :by_movie_id
-        has_scope :by_movie
+        has_scope :by_weight
         has_scope :by_age
+        has_scope :by_movie
     
     
         def index 
-            @characters = apply_scopes(Character).all
+            @characters = apply_scopes(Character).all.order(created_at: :asc)
             render json: @characters
          end
          
@@ -74,6 +74,8 @@ class CharactersController < ApplicationController
          def current_character
             @character = Character.find(params[:id])
          end
+
+        
     
     end
 

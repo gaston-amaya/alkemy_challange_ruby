@@ -2,7 +2,7 @@ class MovieCharacterController < ApplicationController
   before_action :current_movie_character, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
-  has_scope :by_movie
+  has_scope :by_movie_id
 
   def index
     @movie_characters = apply_scopes(MovieCharacter).all

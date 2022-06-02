@@ -38,8 +38,14 @@ class Movie < ApplicationRecord
 #scopes
 scope :by_title, -> title { where(title: title) }
 scope :by_genre, -> genre_id { where(genre_id: genre_id) }
-scope :by_order, -> {order(created_at: :desc) }
-#scope :desc, -> { reorder(created_at: :desc) }
+
+#default is DESC and becomes ASC if specified
+default_scope { order(created_at: :desc) }
+scope :by_order, -> order {reorder(created_at: :asc) }
+
+# shows what movies a character has been on 
+scope :by_movie_id, -> id{joins(movie_characters: :character).where(characters: {id: id })}
+
 
 
 

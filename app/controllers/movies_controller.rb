@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
     has_scope :by_title
     has_scope :by_genre
     has_scope :by_order
+    has_scope :by_movie_id
     
     
         def index 

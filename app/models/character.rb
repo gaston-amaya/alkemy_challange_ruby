@@ -15,7 +15,11 @@ class Character < ApplicationRecord
 #scopes
 scope :by_name, -> name { where(name: name) }
 scope :by_age, -> age { where(age: age) }
-scope :by_movie, -> movie { where(movie: movie) }
+scope :by_weight, -> weight {where(weight: weight)}
+
+# shows what characters are in a certain movie id 
+scope :by_movie, -> id{joins(movie_characters: :movie).where(movies: {id: id })}
+
 
 
 #validations

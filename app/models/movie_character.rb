@@ -19,12 +19,6 @@
 #  movie_id      (movie_id => movies.id)
 #
 class MovieCharacter < ApplicationRecord
-    #scopes 
-    scope :by_movie, -> id { where(id: id) }
-    
-
-
-
     #validations
     validates :character_id, :movie_id, presence: true 
     validates :character_id, :movie_id, format: { with: /[0-9]/, message: 'Only numbers can be used'}
