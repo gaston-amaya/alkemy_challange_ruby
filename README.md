@@ -6,10 +6,9 @@
 5. when a user registers a welcome email gets sent to their registered email 
 6. validations model, controller and database
 7. flash messages for success and fail entries (displaying errors included)
+8. add query filters(already looked at a gem called "has_scopes", it should work)
 
 
 # things to do: 
-
-1. add query filters(already looked at a gem called "has_scopes", it should work)
-2. documentation(done with insomnia and uploaded to a github website)
-3. tests 
+1. documentation(done with insomnia and uploaded to a github website)
+2. tests 
