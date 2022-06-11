@@ -16,14 +16,16 @@ class GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.create(genre_params)
+    @genre = Genre.create!(genre_params)
     if @genre.valid?
       @genre.save
       flash[:notice] = 'The genre has been added successfully!'
       
       redirect_to genres_path
     else
-      flash[:alert] = @genre.errors.full_messages
+     flash[:alert] = @genre.errors.full_messages
+     
+      
     end
     
   end
@@ -31,7 +33,7 @@ class GenresController < ApplicationController
   def edit; end
 
   def update
-    @genre.update(genre_params)
+    @genre.update!(genre_params)
     if @genre.valid?
       @genre.save
       flash[:notice] = 'The genre has been updated successfully!'
@@ -39,6 +41,7 @@ class GenresController < ApplicationController
       
     else
       flash[:alert] = @genre.errors.full_messages
+      
     end
 
   end

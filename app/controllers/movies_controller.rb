@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
     has_scope :by_title
     has_scope :by_genre
     has_scope :by_order
-    has_scope :by_movie_id
+    has_scope :by_character
     
     
         def index 
@@ -23,7 +23,7 @@ class MoviesController < ApplicationController
          end
      
          def create
-             @movie = Movie.create(movie_params)
+             @movie = Movie.create!(movie_params)
              
                 if @movie.valid?
                     @movie.save
@@ -41,7 +41,7 @@ class MoviesController < ApplicationController
          end
      
          def update
-         @movie.update(movie_params)
+         @movie.update!(movie_params)
          if @movie.valid?
             @movie.save
             flash[:notice] = 'The movie has been updated successfully!'

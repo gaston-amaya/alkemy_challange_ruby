@@ -24,7 +24,7 @@ class CharactersController < ApplicationController
          end
      
          def create
-             @character = Character.create(character_params)
+             @character = Character.create!(character_params)
             if @character.valid?
                 @character.save
                 flash[:notice] = 'The character has been added successfully!'
@@ -42,7 +42,7 @@ class CharactersController < ApplicationController
          end
      
          def update
-         @character.update(character_params)
+         @character.update!(character_params)
          if @character.valid?
             @character.save
             flash[:notice] = 'The character has been updated successfully!'
@@ -50,6 +50,7 @@ class CharactersController < ApplicationController
             
          else
             flash[:alert] = @character.errors.full_messages
+            puts(flash.inspect)
          end
 
 
@@ -60,6 +61,7 @@ class CharactersController < ApplicationController
          def destroy
              @character.destroy
              flash[:notice] = 'The character has been deleted successfully!'
+             
              
 
          

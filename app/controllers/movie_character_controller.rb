@@ -18,7 +18,7 @@ class MovieCharacterController < ApplicationController
   end
 
   def create
-    @movie_characters = MovieCharacter.create(movie_character_params)
+    @movie_characters = MovieCharacter.create!(movie_character_params)
     if @movie_characters.valid?
     @movie_characters.save
     flash[:notice] = 'The movie/character has been added successfully!'
@@ -30,7 +30,7 @@ class MovieCharacterController < ApplicationController
   def edit; end
 
   def update
-    @movie_characters.update(movie_character_params)
+    @movie_characters.update!(movie_character_params)
     if @movie_characters.valid?
     @movie_characters.save
     flash[:notice] = 'The movie/character has been updated successfully!'

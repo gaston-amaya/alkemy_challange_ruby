@@ -44,7 +44,7 @@ default_scope { order(created_at: :desc) }
 scope :by_order, -> order {reorder(created_at: :asc) }
 
 # shows what movies a character has been on 
-scope :by_movie_id, -> id{joins(movie_characters: :character).where(characters: {id: id })}
+scope :by_character, -> id{joins(movie_characters: :character).where(characters: {id: id })}
 
 
 
