@@ -14,7 +14,7 @@ class Genre < ApplicationRecord
   # validations
   validates :name, :picture, presence: true 
 
-  validates :name, uniqueness: { message: 'a genre with that name already exists' }
+  validates :name, uniqueness: {on: :create, message: 'a genre with that name already exists'} #{ message: 'a genre with that name already exists' }
 
   validates :name, length: { in: 3..25, message: 'The genre name length must be higher than 3 letters and has a maximum of 25 letters' }
 

@@ -23,7 +23,7 @@ class Movie < ApplicationRecord
 #validations
   validates :picture, :rating, :title, :genre_id, presence: true
 
-  validates :title, uniqueness:{ message: 'A movie with that title already exists' }
+  validates :title, uniqueness:{on: :create, message: 'A movie with that title already exists' }
 
   validates :title, length: { in: 3..50, message: 'The title length must be higher than 3 letters and has a maximum of 50 letters'}
 
