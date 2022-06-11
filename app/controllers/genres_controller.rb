@@ -2,8 +2,10 @@ class GenresController < ApplicationController
   before_action :current_genre, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
+  has_scope :by_name
+
   def index
-    @genres = Genre.all
+    @genres = apply_scopes(Genre).all
     render json: @genres
   end
 
@@ -21,7 +23,8 @@ class GenresController < ApplicationController
       @genre.save
       flash[:notice] = 'The genre has been added successfully!'
       
-      redirect_to genres_path
+      render json: @genre, status: :created
+      
     else
      flash[:alert] = @genre.errors.full_messages
      

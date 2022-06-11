@@ -26,4 +26,11 @@ class Genre < ApplicationRecord
   #associations
 
   has_many :movies
+
+  #scopes
+
+  scope :by_name, -> name { where(name: name) }
+
+
+  
 end
