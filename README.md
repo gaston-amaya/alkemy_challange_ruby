@@ -18,7 +18,7 @@ Content of this project:
 
 - Welcome email after registering done with Action Mailer
 
--SQLite, has many/belongs to/many through associations
+- SQLite, has many/belongs to/many through associations
 
 - Filter what information is displayed in GET requests with Active Model Serializer gem
 
