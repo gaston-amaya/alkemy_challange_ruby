@@ -18,7 +18,7 @@ made CRUD tests for genre, movie and character
 
 to try the tests, run the below command in the respository directory:
 
-1. rspec spec
+- rspec spec
 
 
 Content of this project:
