@@ -3,9 +3,9 @@
 https://gaston-amaya.github.io/
 
 
-# Installation
+#Installation
 
-## clone the repository and CD in to it and run the commands below
+Clone the repository and CD in to it and run the commands below
 
 1. bundle install
 2. rake db:create
