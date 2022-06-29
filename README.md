@@ -3,7 +3,7 @@
 https://gaston-amaya.github.io/
 
 
-#Installation
+# Installation
 
 Clone the repository and CD in to it and run the commands below
 
