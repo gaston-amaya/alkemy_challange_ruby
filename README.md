@@ -37,4 +37,4 @@ to try the tests, run the below command in the respository directory:
 
 - Documentation of endpoints done with insomnia
 
-- CRUD tests done with the RSpec gem
+- CRUD tests done with the RSpec gem and database_cleaner gem
