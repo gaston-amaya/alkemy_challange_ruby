@@ -21,16 +21,12 @@ class GenresController < ApplicationController
     @genre = Genre.create!(genre_params)
     if @genre.valid?
       @genre.save
-      flash[:notice] = 'The genre has been added successfully!'
-      
+      flash[:notice] = "The genre has been added successfully!"
+
       render json: @genre, status: :created
-      
     else
-     flash[:alert] = @genre.errors.full_messages
-     
-      
+      flash[:alert] = @genre.errors.full_messages
     end
-    
   end
 
   def edit; end
@@ -39,20 +35,16 @@ class GenresController < ApplicationController
     @genre.update!(genre_params)
     if @genre.valid?
       @genre.save
-      flash[:notice] = 'The genre has been updated successfully!'
-
-      
+      flash[:notice] = "The genre has been updated successfully!"
+      render json: @genre
     else
       flash[:alert] = @genre.errors.full_messages
-      
     end
-
   end
 
   def destroy
     @genre.destroy
-    flash[:notice] = 'The genre has been deleted successfully!'
-    
+    flash[:notice] = "The genre has been deleted successfully!"
   end
 
   private
