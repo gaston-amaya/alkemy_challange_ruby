@@ -21,7 +21,7 @@ to try the tests, run the below command in the respository directory:
 - rspec spec
 
 
-Content of this project:
+# Content of this project:
 
 - Login & Register with devise-jwt gem
 
