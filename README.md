@@ -3,13 +3,22 @@
 https://gaston-amaya.github.io/
 
 
+#Installation
+
+##clone the repository and CD in to it and run the commands below
+
+1. bundle install
+2. rake db:create
+3. rake db:migrate
+4. rails s
+
 # Tests
 
 made CRUD tests for genre, movie and character
 
 to try the tests, run the below command in the respository directory:
 
-rspec spec
+1. rspec spec
 
 
 Content of this project:
