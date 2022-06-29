@@ -32,7 +32,7 @@ class CharactersController < ApplicationController
              redirect_to characters_path
             else
                 flash[:alert] = @character.errors.full_messages
-                puts(flash.inspect)
+                
             end
      
          end
@@ -50,7 +50,7 @@ class CharactersController < ApplicationController
             
          else
             flash[:alert] = @character.errors.full_messages
-            puts(flash.inspect)
+            
          end
 
 
